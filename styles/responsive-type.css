@@ -10,3 +10,9 @@
   .niche-call h2,.niche-cta h2{font-size:clamp(2.5rem,11vw,3.25rem)}
   .modal h2{font-size:clamp(2.25rem,10vw,3rem)}
 }
+
+/* Keep the dotted brand texture quiet and consistent on every page. */
+.hero-grid{opacity:.04;background-size:34px 34px}
+.industries{background-image:radial-gradient(rgba(255,255,255,.025) 1px,transparent 1px);background-size:34px 34px}
+.info-page>section,.niche-hero{background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);background-size:34px 34px}
+.video-poster::before{opacity:.16;background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:32px 32px}
