@@ -17,7 +17,7 @@ export default function VideoDemoSection() {
       <div className="video-demo-copy">
         <p className="mono coral">SEE SMARTDESKIA IN ACTION</p>
         <h2>One intelligent front desk.<br /><em>Every conversation handled.</em></h2>
-        <p>Discover how SmartDeskia answers calls, manages conversations, books appointments and keeps your business moving—day and night.</p>
+        <p>Watch how SmartDeskia answers calls, manages conversations, books appointments and keeps your business moving—day and night.</p>
       </div>
       <button className="video-poster" type="button" onClick={() => setOpen(true)} aria-label="Play the Sofia demonstration video">
         <span className="video-brand">SMART<span>DESK</span>IA<b>.</b></span>
