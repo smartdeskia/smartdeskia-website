@@ -127,9 +127,10 @@ html,body{max-width:100%;overflow-x:clip}
 html{font-size:100%}
 body{font-size:1rem;line-height:1.65}
 .sd-site{color:#f4f2ec}
-.sd-hero h1{font-size:clamp(4rem,9vw,9rem);line-height:.82}
-.sd-hero-bottom>p,.body-copy,.dive-head>p:last-child,.try-call>div:first-child>p:last-child,.how-head>p,.closing>p:nth-of-type(2){max-width:38rem;color:#c1c5c1;font-size:clamp(1rem,.96rem + .2vw,1.125rem);line-height:1.65}
-.industry-panel h2{max-width:48rem;font-size:clamp(3rem,5vw,5.5rem);line-height:.98}
+.sd-hero h1{font-size:clamp(3.75rem,8vw,7.5rem);line-height:.84}
+.sd-site h2{font-size:clamp(2.75rem,5vw,4.75rem);line-height:.96}
+.sd-hero-bottom>p,.body-copy,.dive-head>p:last-child,.try-call>div:first-child>p:last-child,.how-head>p,.closing>p:nth-of-type(2){max-width:38rem;color:#c1c5c1;font-size:clamp(1rem,.98rem + .1vw,1.0625rem);line-height:1.65}
+.industry-panel h2{max-width:48rem;font-size:clamp(2.625rem,4.25vw,4.25rem);line-height:1}
 .sd-nav nav a{font-size:clamp(.9375rem,.9rem + .12vw,1rem);font-weight:500}
 .tab-row{overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin}
 .tab-row button{min-height:3.5rem;padding:1rem .75rem;font-size:clamp(.9375rem,.88rem + .2vw,1.0625rem);font-weight:500;letter-spacing:.08em;white-space:nowrap}
@@ -153,7 +154,9 @@ body{font-size:1rem;line-height:1.65}
 @media(max-width:767px){
   .sd-section{padding:5rem 1.25rem}
   .sd-hero{padding-left:1.25rem;padding-right:1.25rem}
-  .sd-hero h1{font-size:clamp(4rem,20vw,5rem)}
+  .sd-hero h1{font-size:clamp(3.5rem,17vw,4.5rem)}
+  .sd-site h2{font-size:clamp(2.5rem,11vw,3.25rem)}
+  .industry-panel h2{font-size:clamp(2.375rem,10vw,3rem)}
   .sd-hero-bottom>p,.body-copy,.dive-head>p:last-child,.try-call>div:first-child>p:last-child,.how-head>p{font-size:1rem}
   .tab-row{margin-right:-1.25rem;padding-right:1.25rem}
   .tab-row button{flex:0 0 auto;min-width:7.25rem;font-size:.9375rem}
@@ -213,10 +216,10 @@ body{font-size:1rem;line-height:1.65}
 .info-page>header{height:78px;padding:0 4.5vw;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #ffffff1c}
 .info-page>header>a:last-child{color:#aab0ad;font-size:.9375rem}
 .info-page>section{min-height:calc(100vh - 78px);padding:6rem 8vw;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:28px 28px}
-.info-page h1{max-width:62rem;margin:1.5rem 0;font:400 clamp(4rem,9vw,8.5rem)/.88 Georgia,serif;letter-spacing:-.06em}
+.info-page h1{max-width:62rem;margin:1.5rem 0;font:400 clamp(3.5rem,7.5vw,6.5rem)/.92 Georgia,serif;letter-spacing:-.055em}
 .info-page section>p:not(.mono){max-width:38rem;color:#b8c0bc;font-size:1.0625rem;line-height:1.65}
 .info-page .coral-button{margin-top:1.5rem}
-@media(max-width:700px){.sd-nav nav.open{top:68px}.info-page>header{padding:0 1.25rem}.info-page>section{padding:4.5rem 1.25rem}.info-page h1{font-size:clamp(3.5rem,18vw,5rem)}}
+@media(max-width:700px){.sd-nav nav.open{top:68px}.info-page>header{padding:0 1.25rem}.info-page>section{padding:4.5rem 1.25rem}.info-page h1{font-size:clamp(3rem,14vw,4rem)}}
 
 /* Keep the open mobile menu in an opaque layer above every page section. */
 @media(max-width:1100px){
@@ -235,7 +238,7 @@ body{font-size:1rem;line-height:1.65}
 
 /* Video demo placement between Industries and the booking workflow. */
 .video-demo{display:grid;grid-template-columns:minmax(18rem,.72fr) minmax(30rem,1.28fr);align-items:center;gap:clamp(3rem,7vw,8rem);border-top:1px solid #ffffff18;background:#111416}
-.video-demo-copy h2{margin:1.25rem 0 1.75rem;font-size:clamp(3.2rem,5.5vw,6rem)}
+.video-demo-copy h2{margin:1.25rem 0 1.75rem;font-size:clamp(2.75rem,4.75vw,4.75rem)}
 .video-demo-copy>p:last-child{max-width:34rem;margin:0;color:#b9bfbb;font-size:clamp(1rem,.96rem + .2vw,1.125rem);line-height:1.7}
 .video-poster{position:relative;isolation:isolate;aspect-ratio:16/9;width:100%;overflow:hidden;padding:2rem;border:1px solid #ffffff24;background:radial-gradient(circle at 72% 34%,#ff6b4a24,transparent 25%),linear-gradient(135deg,#24292b,#111416 72%);color:var(--paper);box-shadow:0 2.5rem 6rem #0008;text-align:left;cursor:pointer;transition:transform .3s ease,border-color .3s ease}
 .video-poster:before{content:"";position:absolute;z-index:-1;inset:0;opacity:.32;background-image:radial-gradient(rgba(255,255,255,.16) 1px,transparent 1px);background-size:28px 28px}
