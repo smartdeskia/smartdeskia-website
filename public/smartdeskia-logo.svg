@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="220" viewBox="0 0 1200 220">
+  <g font-family="Arial, Helvetica, sans-serif" font-size="142" font-weight="800" letter-spacing="8">
+    <text x="36" y="163" fill="#f4f2ec">SMART</text>
+    <text x="558" y="163" fill="#ff6b4a">DESK</text>
+    <text x="967" y="163" fill="#f4f2ec">IA</text>
+  </g>
+  <circle cx="1162" cy="150" r="16" fill="#ff6b4a"/>
+</svg>
