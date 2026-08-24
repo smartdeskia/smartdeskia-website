@@ -316,9 +316,10 @@ body{font-size:1rem;line-height:1.65}
 .call-transcript p{margin:0;padding:.85rem 0;border-top:1px solid #ffffff0e;color:#69716d;font-size:.875rem;line-height:1.55;transition:color .25s ease,transform .25s ease}
 .call-transcript p b{display:block;margin-bottom:.2rem;color:#737c77;font:700 .6875rem var(--font-geist-mono),monospace;letter-spacing:.1em;text-transform:uppercase}
 .call-transcript p.heard{color:#9da49f}.call-transcript p.active{color:#f3f1eb;transform:translateX(.3rem)}.call-transcript p.active b{color:var(--coral)}
+.call-transcript .transcript-ready{color:#737c77;font-style:italic}.type-cursor{display:inline-block;width:1px;height:1em;margin-left:.18rem;background:var(--coral);vertical-align:-.12em;animation:typeBlink .75s steps(1) infinite}@keyframes typeBlink{50%{opacity:0}}
 .call-player>footer{margin-top:1rem;border-top:1px solid #ffffff18;border-bottom:0}
 .call-player>footer button{display:flex;align-items:center;gap:.7rem;min-height:2.75rem;padding:0 1rem;border:0;background:var(--coral);color:var(--ink);font-weight:750;cursor:pointer}.call-player>footer button>i{font-style:normal}
-.call-player>footer>span{color:var(--sage);font-size:.6875rem;white-space:nowrap}
+.call-player>footer>span{color:var(--sage);font-size:.6875rem;white-space:nowrap}.call-player>footer>span.pending{color:#7d8581}.call-player>footer>span.pending i{background:#7d8581;box-shadow:none}.call-player>footer>span.confirmed{color:var(--sage)}
 @media(max-width:900px){.audio-demo{grid-template-columns:1fr}.call-player{width:100%}}
 @media(max-width:600px){.audio-waveform{gap:.2rem}.call-transcript{max-height:17rem}.call-player>footer{align-items:stretch;flex-direction:column}.call-player>footer button{justify-content:center}.call-player>footer>span{text-align:center}.call-player>header{align-items:flex-start;flex-direction:column}}
-@media(prefers-reduced-motion:reduce){.audio-waveform.playing i{animation:none;transform:scaleY(.8)}.call-transcript p,.audio-progress i{transition:none}}
+@media(prefers-reduced-motion:reduce){.audio-waveform.playing i,.type-cursor{animation:none}.audio-waveform.playing i{transform:scaleY(.8)}.call-transcript p,.audio-progress i{transition:none}}
