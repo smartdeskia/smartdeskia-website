@@ -297,3 +297,28 @@ body{font-size:1rem;line-height:1.65}
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 @media(max-width:700px){.chat-box{right:10px;bottom:76px;width:calc(100vw - 20px);max-height:calc(100dvh - 96px)}.chat-messages{min-height:180px}.chat-options{max-height:165px;overflow-y:auto}}
 @media(prefers-reduced-motion:reduce){.chat-typing i{animation:none}.chat-options button{transition:none}}
+
+/* Interactive spoken-call demo between the explainer and booking workflow. */
+.audio-demo{display:grid;grid-template-columns:minmax(17rem,.72fr) minmax(30rem,1.28fr);align-items:start;gap:clamp(3rem,7vw,8rem);border-top:1px solid #ffffff18;background:#191d1f}
+.audio-demo-copy h2{margin:1.25rem 0 1.5rem;font-size:clamp(2.75rem,4.75vw,4.75rem)}
+.audio-demo-copy>p:not(.mono){max-width:35rem;margin:0;color:#b9bfbb;font-size:clamp(1rem,.98rem + .1vw,1.0625rem);line-height:1.7}
+.audio-demo-copy>small{display:block;max-width:31rem;margin-top:1.25rem;color:#737c77;font-size:.75rem;line-height:1.55}
+.call-player{overflow:hidden;border:1px solid #ffffff22;background:#111416;box-shadow:0 2.5rem 6rem #0006}
+.call-player>header,.call-player>footer{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;border-bottom:1px solid #ffffff18;font:700 .75rem var(--font-geist-mono),monospace;letter-spacing:.1em}
+.call-player>header span{color:var(--sage)}.call-player>header span i,.call-player>footer>span i{display:inline-block;width:.45rem;height:.45rem;margin-right:.5rem;border-radius:50%;background:var(--coral);box-shadow:0 0 0 .3rem #ff6b4a18}
+.call-player>header small{color:#737c77;font-size:.6875rem}
+.audio-waveform{height:5.5rem;margin:1.5rem 1.25rem .8rem;display:flex;align-items:center;justify-content:center;gap:.3rem}
+.audio-waveform i{width:.18rem;max-height:4.5rem;border-radius:2rem;background:#ff6b4a5c;transform:scaleY(.45);transition:transform .3s ease,background .3s ease}
+.audio-waveform.playing i{background:var(--coral);animation:audioPulse .8s ease-in-out infinite alternate}.audio-waveform.playing i:nth-child(3n){animation-delay:.16s}.audio-waveform.playing i:nth-child(4n){animation-delay:.32s}
+@keyframes audioPulse{to{transform:scaleY(1)}}
+.audio-progress{height:2px;margin:0 1.25rem 1.25rem;background:#ffffff14}.audio-progress i{display:block;height:100%;background:var(--coral);transition:width .45s ease}
+.call-transcript{max-height:20rem;overflow-y:auto;padding:0 1.25rem;scrollbar-width:thin}
+.call-transcript p{margin:0;padding:.85rem 0;border-top:1px solid #ffffff0e;color:#69716d;font-size:.875rem;line-height:1.55;transition:color .25s ease,transform .25s ease}
+.call-transcript p b{display:block;margin-bottom:.2rem;color:#737c77;font:700 .6875rem var(--font-geist-mono),monospace;letter-spacing:.1em;text-transform:uppercase}
+.call-transcript p.heard{color:#9da49f}.call-transcript p.active{color:#f3f1eb;transform:translateX(.3rem)}.call-transcript p.active b{color:var(--coral)}
+.call-player>footer{margin-top:1rem;border-top:1px solid #ffffff18;border-bottom:0}
+.call-player>footer button{display:flex;align-items:center;gap:.7rem;min-height:2.75rem;padding:0 1rem;border:0;background:var(--coral);color:var(--ink);font-weight:750;cursor:pointer}.call-player>footer button>i{font-style:normal}
+.call-player>footer>span{color:var(--sage);font-size:.6875rem;white-space:nowrap}
+@media(max-width:900px){.audio-demo{grid-template-columns:1fr}.call-player{width:100%}}
+@media(max-width:600px){.audio-waveform{gap:.2rem}.call-transcript{max-height:17rem}.call-player>footer{align-items:stretch;flex-direction:column}.call-player>footer button{justify-content:center}.call-player>footer>span{text-align:center}.call-player>header{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){.audio-waveform.playing i{animation:none;transform:scaleY(.8)}.call-transcript p,.audio-progress i{transition:none}}
