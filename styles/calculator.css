@@ -2,3 +2,4 @@
 @media(max-width:900px){.cost-calculator-grid{grid-template-columns:1fr}.cost-result{max-width:720px}.cost-total strong{font-size:clamp(58px,12vw,88px)}}
 @media(max-width:700px){.cost-calculator-grid{margin-top:48px;gap:34px}.cost-field{padding:19px 16px}.cost-field-heading{gap:14px}.cost-field small{max-width:210px}.cost-number-wrap{min-width:88px;padding:0 8px}.cost-number-wrap input{width:52px}.cost-result{padding:26px 20px;box-shadow:8px 8px 0 var(--coral)}.cost-total strong{font-size:15vw}.cost-secondary-results{grid-template-columns:1fr}.cost-disclaimer{margin-top:38px}}
 .cost-number-wrap{font-size:12px;white-space:nowrap}
+.cost-method{margin-top:30px;padding-top:25px;border-top:1px solid #d4d1c7}.cost-method h3{margin:0 0 10px;font:600 15px var(--font-geist-sans),sans-serif}.cost-method p{margin:0;color:#606561;font-size:12px;line-height:1.6}.cost-method small{display:block;margin-top:14px;color:#777c78;font-size:11px;line-height:1.55}
