@@ -6,6 +6,7 @@ import "../styles/sections.css";
 import "../styles/enhancements.css";
 import "../styles/pages.css";
 import "../styles/responsive-type.css";
+import "../styles/calculator.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
