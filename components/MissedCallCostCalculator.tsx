@@ -125,23 +125,23 @@ export default function MissedCallCostCalculator() {
         </form>
 
         <div className="cost-result" aria-live="polite">
-          <p className="cost-result-lead">Here is what those missed calls could mean for your business:</p>
+          <p className="cost-result-lead">Here’s an estimate of what unanswered calls could be costing your business.</p>
           <div className="cost-flow">
-            <p><strong>{quantity.format(inputs.missedCallsPerWeek)}</strong> calls not answered each week</p>
+            <p><strong>{quantity.format(inputs.missedCallsPerWeek)}</strong> unanswered calls per week</p>
             <span aria-hidden="true">↓</span>
-            <p><strong>{quantity.format(result.potentialCustomersPerWeek)}</strong> possible jobs or bookings missed</p>
+            <p><strong>≈ {quantity.format(result.potentialCustomersPerWeek)}</strong> potential bookings per week</p>
             <span aria-hidden="true">↓</span>
-            <p><strong>{quantity.format(result.annualOpportunities)}</strong> possible jobs or bookings per year</p>
+            <p><strong>≈ {quantity.format(result.annualOpportunities)}</strong> potential bookings per year</p>
             <span aria-hidden="true">↓</span>
           </div>
           <div className="cost-total">
             <strong>{euro.format(result.annualRevenueAtRisk)}</strong>
-            <span>that could be lost in one year</span>
+            <span>estimated annual revenue opportunity</span>
           </div>
 
           <div className="cost-secondary-results">
-            <p><span>Possible loss each month</span><strong>{euro.format(result.monthlyRevenueAtRisk)}</strong></p>
-            <p><span>Possible jobs or bookings yearly</span><strong>{quantity.format(result.annualOpportunities)}</strong></p>
+            <p><span>Estimated monthly opportunity</span><strong>{euro.format(result.monthlyRevenueAtRisk)}</strong></p>
+            <p><span>Estimated potential bookings per year</span><strong>≈ {quantity.format(result.annualOpportunities)}</strong></p>
           </div>
 
           <div className="cost-risk">
@@ -151,10 +151,14 @@ export default function MissedCallCostCalculator() {
             </div>
             <p>{result.riskDescription}</p>
           </div>
+
+          <div className="cost-method">
+            <h3>How we estimate this</h3>
+            <p>Your estimate is based on the number of unanswered calls, the percentage of callers you believe could become customers, your average booking value, and the number of weeks your business operates.</p>
+            <small>This is an illustrative estimate, not a guarantee of revenue. Actual results depend on caller intent, conversion rates, availability, pricing and other business factors.</small>
+          </div>
         </div>
       </div>
-
-      <p className="cost-disclaimer">Estimates are illustrative only and depend on your actual call volume, conversion rate and customer value. SmartDeskia does not guarantee recovered revenue.</p>
     </section>
   );
 }
