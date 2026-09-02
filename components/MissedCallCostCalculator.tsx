@@ -14,17 +14,18 @@ const defaults: MissedCallInputs = {
   workingWeeksPerYear: 52,
 };
 
-const euro = new Intl.NumberFormat("en-IE", {
-  style: "currency",
-  currency: "EUR",
-  maximumFractionDigits: 0,
-});
-
 const quantity = new Intl.NumberFormat("en-IE", {
   maximumFractionDigits: 1,
 });
 
 const riskLevels: RiskLevel[] = ["Low", "Moderate", "High", "Very High"];
+const currencies = {
+  EUR: { symbol: "€", locale: "en-IE", label: "€ EUR — Euro" },
+  GBP: { symbol: "£", locale: "en-GB", label: "£ GBP — British Pound" },
+  USD: { symbol: "$", locale: "en-US", label: "$ USD — US Dollar" },
+} as const;
+
+type CurrencyCode = keyof typeof currencies;
 
 type InputKey = keyof MissedCallInputs;
 
@@ -101,7 +102,13 @@ function CalculatorInput({
 
 export default function MissedCallCostCalculator() {
   const [inputs, setInputs] = useState(defaults);
+  const [currency, setCurrency] = useState<CurrencyCode>("EUR");
   const result = useMemo(() => calculateMissedCallCost(inputs), [inputs]);
+  const money = useMemo(() => new Intl.NumberFormat(currencies[currency].locale, {
+    style: "currency",
+    currency,
+    maximumFractionDigits: 0,
+  }), [currency]);
 
   const setValue = (key: InputKey, value: number) =>
     setInputs((current) => ({ ...current, [key]: value }));
@@ -118,9 +125,18 @@ export default function MissedCallCostCalculator() {
 
       <div className="cost-calculator-grid">
         <form className="cost-controls" onSubmit={(event) => event.preventDefault()}>
+          <div className="cost-currency">
+            <div>
+              <label htmlFor="calculator-currency">Your currency</label>
+              <small>Changes the currency symbol only. Values are not converted.</small>
+            </div>
+            <select id="calculator-currency" value={currency} onChange={(event) => setCurrency(event.target.value as CurrencyCode)}>
+              {Object.entries(currencies).map(([code, details]) => <option key={code} value={code}>{details.label}</option>)}
+            </select>
+          </div>
           <CalculatorInput id="missed-calls" label="How many calls do you miss in a week?" hint="Count calls you cannot answer while working, driving or closed." value={inputs.missedCallsPerWeek} min={0} max={100} step={1} onChange={(value) => setValue("missedCallsPerWeek", value)} />
           <CalculatorInput id="conversion" label="Out of 10 callers, how many might book?" hint="Choose a rough number. For example, 3 means 3 out of every 10 callers." value={inputs.conversionPercentage / 10} min={0} max={10} step={1} suffix=" of 10" onChange={(value) => setValue("conversionPercentage", value * 10)} />
-          <CalculatorInput id="customer-value" label="What is one new job or booking worth?" hint="Enter roughly what one typical paying customer spends with you." value={inputs.averageCustomerValue} min={0} max={5000} step={10} prefix="€" onChange={(value) => setValue("averageCustomerValue", value)} />
+          <CalculatorInput id="customer-value" label="What is one new job or booking worth?" hint="Enter roughly what one typical paying customer spends with you." value={inputs.averageCustomerValue} min={0} max={5000} step={10} prefix={currencies[currency].symbol} onChange={(value) => setValue("averageCustomerValue", value)} />
           <CalculatorInput id="working-weeks" label="How many weeks are you open each year?" hint="Most businesses can leave this at 52." value={inputs.workingWeeksPerYear} min={0} max={52} step={1} onChange={(value) => setValue("workingWeeksPerYear", value)} />
         </form>
 
@@ -135,12 +151,12 @@ export default function MissedCallCostCalculator() {
             <span aria-hidden="true">↓</span>
           </div>
           <div className="cost-total">
-            <strong>{euro.format(result.annualRevenueAtRisk)}</strong>
+            <strong>{money.format(result.annualRevenueAtRisk)}</strong>
             <span>estimated annual revenue opportunity</span>
           </div>
 
           <div className="cost-secondary-results">
-            <p><span>Estimated monthly opportunity</span><strong>{euro.format(result.monthlyRevenueAtRisk)}</strong></p>
+            <p><span>Estimated monthly opportunity</span><strong>{money.format(result.monthlyRevenueAtRisk)}</strong></p>
             <p><span>Estimated potential bookings per year</span><strong>≈ {quantity.format(result.annualOpportunities)}</strong></p>
           </div>
 
