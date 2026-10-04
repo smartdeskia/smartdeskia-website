@@ -13,5 +13,5 @@ export default function LiveActivityStrip() {
   const [offset, setOffset] = useState(0);
   useEffect(() => { const timer = setInterval(() => setOffset(value => (value + 1) % activity.length), 3600); return () => clearInterval(timer); }, []);
   const events = activity.map((_, index) => activity[(index + offset) % activity.length]);
-  return <section className="event-strip" aria-label="Example SmartDeskia workflow activity"><span className="event-demo-label">SAMPLE ACTIVITY</span><div className="event-track">{[0, 1].map(group => <div className="event-group" aria-hidden={group === 1} key={group}>{events.map((event, index) => <span className={index === 0 ? "incoming" : ""} key={`${event.status}-${event.job}`}><i /><b>{event.status}</b> · {event.job} · {event.detail}</span>)}</div>)}</div></section>;
+  return <section className="event-strip" aria-label="Example SmartDeskia workflow activity"><span className="event-demo-label">Example data</span><div className="event-track">{[0, 1].map(group => <div className="event-group" aria-hidden={group === 1} key={group}>{events.map((event, index) => <span className={index === 0 ? "incoming" : ""} key={`${event.status}-${event.job}`}><i /><b>{event.status}</b> · {event.job} · {event.detail}</span>)}</div>)}</div></section>;
 }

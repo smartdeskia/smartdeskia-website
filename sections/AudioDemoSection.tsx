@@ -57,10 +57,10 @@ export default function AudioDemoSection() {
       <p className="mono coral">OPTIONAL CALL HANDLING</p>
       <h2>Need help with calls too?</h2>
       <p>Sofia can answer calls, capture the enquiry and feed the details into the same SmartDeskia workflow.</p>
-      <small>RECORDED DEMONSTRATION · Personal contact details are shortened in the transcript.</small>
+      <small>Sample call — AI-generated audio. Personal contact details are shortened in the transcript.</small>
     </div>
     <div className="call-player">
-      <header><span><i /> RECORDED DEMONSTRATION</span><small>{playing ? "PLAYING NOW" : currentTime >= duration - .5 ? "CALL COMPLETE" : `READY · ${formatTime(duration)}`}</small></header>
+      <header><span><i /> Sample call — AI-generated audio</span><small>{playing ? "PLAYING NOW" : currentTime >= duration - .5 ? "CALL COMPLETE" : `READY · ${formatTime(duration)}`}</small></header>
       <audio ref={audio} preload="metadata" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} onTimeUpdate={event => setCurrentTime(event.currentTarget.currentTime)}>
         <source src="/smartdeskia-sample-call.mp4" type="audio/mp4" />
       </audio>

@@ -47,6 +47,10 @@ export function AdditionalServicesSection() {
   return <section className="additional-services sd-section" id="services"><div className="additional-services-label"><p className="mono coral">ALSO AVAILABLE</p><h2>Practical support around the main workflow.</h2></div><div className="additional-services-list">{items.map(([title, copy], index) => <article key={String(title)}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></section>;
 }
 
+export function FoundingPilot() {
+  return <section className="founding-pilot" aria-labelledby="founding-pilot-title"><h2 id="founding-pilot-title">Founding pilot — 3 places</h2><p>We&apos;re setting SmartDeskia up with three Maltese service businesses at a reduced setup price, in exchange for honest feedback.</p></section>;
+}
+
 export function FinalCTA({ onRequestCall }: { onRequestCall: () => void }) {
-  return <section className="closing"><h2>See how SmartDeskia could work for your business.</h2><p>We&apos;ll show you how it could fit around the way you already handle enquiries and quotes.</p><div><button className="coral-button" onClick={onRequestCall}>Show me how it would work</button></div></section>;
+  return <section className="closing" id="request-demo"><h2>See how SmartDeskia could work for your business.</h2><p>We&apos;ll show you how it could fit around the way you already handle enquiries and quotes.</p><div><button className="coral-button" onClick={onRequestCall}>Show me how it would work</button></div></section>;
 }
