@@ -41,12 +41,13 @@ test("server-renders the SmartDeskia homepage", async () => {
   assert.doesNotMatch(html, /MARKETING PREVIEW/);
   assert.doesNotMatch(html, /ONE REAL WORKFLOW/);
   assert.doesNotMatch(html, /DentaDesk/i);
-  assert.match(html, /Chat with Sofia/);
+  assert.match(html, /Ask SmartDeskia/);
+  assert.doesNotMatch(html, /Chat with Sofia/);
   assert.match(html, /Privacy Policy/);
 });
 
 test("keeps the handoff structure and routes available", async () => {
-  const required = ["../components/Header.tsx", "../components/Footer.tsx", "../components/SofiaChat.tsx", "../components/DashboardPreview.tsx", "../sections/HeroSection.tsx", "../sections/IndustriesSection.tsx", "../data/industries.ts", "../styles/enhancements.css", "../README.md"];
+  const required = ["../components/Header.tsx", "../components/Footer.tsx", "../components/AskSmartDeskia.tsx", "../components/DashboardPreview.tsx", "../sections/HeroSection.tsx", "../sections/IndustriesSection.tsx", "../data/industries.ts", "../styles/enhancements.css", "../README.md"];
   await Promise.all(required.map(path => access(new URL(path, import.meta.url))));
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
   assert.match(page, /SmartDeskiaHome/);

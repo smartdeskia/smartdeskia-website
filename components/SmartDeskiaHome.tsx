@@ -3,7 +3,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import RequestCallModal from "./RequestCallModal";
-import SofiaChat from "./SofiaChat";
+import AskSmartDeskia from "./AskSmartDeskia";
 import HeroSection from "../sections/HeroSection";
 import MissedCallCostCalculator from "./MissedCallCostCalculator";
 import AdToJobSection from "../sections/AdToJobSection";
@@ -35,5 +35,5 @@ export default function SmartDeskiaHome() {
     return () => window.removeEventListener("open-request-call", openRequestCall);
   }, []);
   const requestCall = () => setModalOpen(true);
-  return <main className="sd-site"><Header /><HeroSection /><AdToJobSection /><HowItWorksSection /><EntryPointsSection /><MissedCallCostCalculator /><FoundingPilot onRequestCall={requestCall} /><Footer onRequestCall={requestCall} /><SofiaChat />{modalOpen && <RequestCallModal onClose={() => setModalOpen(false)} />}</main>;
+  return <main className="sd-site"><Header /><HeroSection /><AdToJobSection /><HowItWorksSection /><EntryPointsSection /><MissedCallCostCalculator /><FoundingPilot onRequestCall={requestCall} /><Footer onRequestCall={requestCall} /><AskSmartDeskia />{modalOpen && <RequestCallModal onClose={() => setModalOpen(false)} />}</main>;
 }

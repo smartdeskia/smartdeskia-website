@@ -255,21 +255,20 @@ body{font-size:1rem;line-height:1.65}
 @media(max-width:640px){.video-poster{padding:1.15rem}.video-brand{top:1rem;left:1rem;font-size:.7rem}.video-call-state{top:1.05rem;right:1rem;font-size:.58rem}.video-play{left:1rem;bottom:1rem}.video-play i{width:3rem;height:3rem}.video-play i:after{margin-top:.9rem;margin-left:1.2rem}.video-play b{display:none}.video-poster>small{right:1rem;bottom:1.85rem;font-size:.55rem}.video-modal{padding:.65rem .65rem 1.5rem}}
 @media(prefers-reduced-motion:reduce){.video-wave i{animation:none}}
 
-/* Coral chat orb expands into a labelled pill on hover or keyboard focus. */
-.chat-fab{isolation:isolate;width:3.5rem;height:3.5rem;min-height:3.5rem;padding:0;display:flex;align-items:center;justify-content:center;gap:.65rem;overflow:visible;border-radius:999px;background:var(--coral);color:var(--ink);box-shadow:0 .65rem 2rem #0008;white-space:nowrap;transition:width .28s ease,transform .2s ease,background .2s ease}
-.chat-fab:hover,.chat-fab:focus-visible{width:11.5rem;transform:translateY(-2px);background:#ff8065}
-.chat-fab span{max-width:0;overflow:hidden;opacity:0;font-size:.875rem;letter-spacing:.04em;transition:max-width .28s ease,opacity .18s ease}
-.chat-fab:hover span,.chat-fab:focus-visible span{max-width:8rem;opacity:1}
+/* Restrained labelled chat pill remains identifiable without interaction. */
+.chat-fab{isolation:isolate;width:auto;height:3.5rem;min-height:3.5rem;padding:0 1rem;display:flex;align-items:center;justify-content:center;gap:.65rem;overflow:visible;border-radius:999px;background:var(--coral);color:var(--ink);box-shadow:0 .65rem 2rem #0008;white-space:nowrap;transition:transform .2s ease,background .2s ease}
+.chat-fab:hover,.chat-fab:focus-visible{transform:translateY(-2px);background:#ff8065}
+.chat-fab span{font-size:.8rem;letter-spacing:.035em}
 .chat-fab i{position:relative;flex:0 0 auto;width:1.15rem;height:.9rem;margin:0;border:2px solid var(--ink);border-radius:.35rem;background:transparent}
 .chat-fab i:after{content:"";position:absolute;left:.15rem;bottom:-.32rem;width:.35rem;height:.35rem;border-left:2px solid var(--ink);transform:skew(-24deg)}
 .chat-fab:before,.chat-fab:after{content:"";position:absolute;z-index:-1;inset:-.2rem;border:1px solid #ff6b4a88;border-radius:999px;animation:chatRing 2.4s ease-out infinite;pointer-events:none}
 .chat-fab:after{animation-delay:1.2s}
 @keyframes chatRing{0%{opacity:.7;transform:scale(.9)}85%,100%{opacity:0;transform:scale(1.65)}}
-@media(max-width:700px){.chat-fab{right:auto;left:1rem;bottom:1rem;width:3.5rem}.chat-fab:hover,.chat-fab:focus-visible{width:3.5rem}.chat-fab span{display:none}}
-@media(prefers-reduced-motion:reduce){.chat-fab,.chat-fab span{transition:none}.chat-fab:before,.chat-fab:after{animation:none;opacity:.3;transform:scale(1.2)}}
+@media(max-width:700px){.chat-fab{right:auto;left:1rem;bottom:1rem;height:3rem;min-height:3rem;padding:0 .85rem}.chat-fab span{font-size:.72rem}}
+@media(prefers-reduced-motion:reduce){.chat-fab{transition:none}.chat-fab:before,.chat-fab:after{animation:none;opacity:.3;transform:scale(1.2)}}
 
-/* Guided Sofia conversation */
-.chat-box{width:min(390px,calc(100vw - 40px));max-height:calc(100dvh - 110px);display:flex;flex-direction:column;overflow:hidden;border:1px solid #ffffff26;border-radius:10px;box-shadow:0 28px 90px #000c}
+/* Guided website conversation */
+.chat-box{bottom:84px;width:min(390px,calc(100vw - 40px));max-height:calc(100dvh - 110px);display:flex;flex-direction:column;overflow:hidden;border:1px solid #ffffff26;border-radius:10px;box-shadow:0 28px 90px #000c}
 .chat-box header{flex:0 0 auto;padding:15px 17px}
 .chat-header-actions{display:flex;align-items:center;gap:5px}
 .chat-box .chat-header-actions button{min-width:44px;min-height:44px;padding:6px 9px;color:#c9cecb;font:11px var(--font-geist-mono),monospace;cursor:pointer}
@@ -295,7 +294,7 @@ body{font-size:1rem;line-height:1.65}
 .chat-input button{min-height:44px;padding:0 14px;border:0;border-radius:4px;background:var(--coral);color:var(--ink);font-weight:750;cursor:pointer}
 .chat-input button:disabled{opacity:.42;cursor:not-allowed}
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-@media(max-width:700px){.chat-box{right:10px;bottom:76px;width:calc(100vw - 20px);max-height:calc(100dvh - 96px)}.chat-messages{min-height:180px}.chat-options{max-height:165px;overflow-y:auto}}
+@media(max-width:700px){.chat-box{right:10px;bottom:70px;width:calc(100vw - 20px);max-height:calc(100dvh - 90px)}.chat-messages{min-height:172px}.chat-options{max-height:220px;padding:10px 14px;gap:5px;overflow-y:auto}.chat-options button,.chat-options a{min-height:38px;padding:8px 11px}}
 @media(prefers-reduced-motion:reduce){.chat-typing i{animation:none}.chat-options button{transition:none}}
 
 /* Interactive spoken-call demo between the explainer and booking workflow. */
