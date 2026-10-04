@@ -265,7 +265,7 @@ body{font-size:1rem;line-height:1.65}
 .chat-fab:before,.chat-fab:after{content:"";position:absolute;z-index:-1;inset:-.2rem;border:1px solid #ff6b4a88;border-radius:999px;animation:chatRing 2.4s ease-out infinite;pointer-events:none}
 .chat-fab:after{animation-delay:1.2s}
 @keyframes chatRing{0%{opacity:.7;transform:scale(.9)}85%,100%{opacity:0;transform:scale(1.65)}}
-@media(max-width:700px){.chat-fab{right:1rem;bottom:1rem;width:3.5rem}.chat-fab:hover,.chat-fab:focus-visible{width:3.5rem}.chat-fab span{display:none}}
+@media(max-width:700px){.chat-fab{right:auto;left:1rem;bottom:1rem;width:3.5rem}.chat-fab:hover,.chat-fab:focus-visible{width:3.5rem}.chat-fab span{display:none}}
 @media(prefers-reduced-motion:reduce){.chat-fab,.chat-fab span{transition:none}.chat-fab:before,.chat-fab:after{animation:none;opacity:.3;transform:scale(1.2)}}
 
 /* Guided Sofia conversation */
