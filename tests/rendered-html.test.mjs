@@ -24,10 +24,15 @@ test("server-renders the SmartDeskia homepage", async () => {
   assert.match(html, /Chat on WhatsApp/);
   assert.match(html, /via WhatsApp/);
   assert.match(html, /From ad to booked job/);
+  assert.match(html, /CAPTURED BY SMARTDESKIA/);
+  assert.match(html, /QUOTE SENT BY OWNER/);
+  assert.match(html, /OWNER FOLLOWED UP/);
   assert.match(html, /Founding pilot — 3 places/);
   assert.match(html, /Quote Follow-Up Calculator/i);
-  assert.match(html, /quoted work with no consistent follow-up — not money lost/);
-  assert.match(html, /5% of that quoted value is/);
+  assert.match(html, /How much quoted work may be waiting for follow-up/);
+  assert.match(html, /not money already lost, and not guaranteed revenue/);
+  assert.doesNotMatch(html, /5% of that quoted value is/);
+  assert.doesNotMatch(html, /Follow-up consistency/);
   assert.doesNotMatch(html, /Winning back even 5%/);
   assert.match(html, /Need help with calls too/);
   assert.match(html, /Sample call — AI-generated audio/);

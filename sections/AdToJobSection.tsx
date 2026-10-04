@@ -4,7 +4,7 @@ export default function AdToJobSection() {
       <div className="ad-to-job-intro">
         <p className="mono coral">From first contact</p>
         <h2>From ad to booked job — nothing slips through.</h2>
-        <p className="ad-to-job-lead">Leads come from your ads, website, WhatsApp or calls. SmartDeskia makes sure none of them are forgotten.</p>
+        <p className="ad-to-job-lead">Your enquiries may come from ads, your website, WhatsApp or calls. SmartDeskia captures them and keeps every quote and follow-up visible.</p>
       </div>
       <div className="ad-flow">
         <article className="ad-stage">
@@ -35,14 +35,14 @@ export default function AdToJobSection() {
         <article className="ad-stage">
           <div className="ad-stage-mark"><span>02</span><i aria-hidden="true" /></div>
           <div>
-            <h3>Enquiry</h3>
+            <h3>Customer enquiry</h3>
             <div className="ad-enquiry">
-              <header><span>Enquiries</span><small className="example-data">Example data</small></header>
+              <header><span>Enquiry captured</span><small className="example-data">Example data</small></header>
               <div>
                 <strong>Sarah M.</strong>
                 <span>Air-conditioning service</span>
-                <span>via Facebook ad</span>
-                <b>NEW</b>
+                <span>From Facebook ad</span>
+                <b>CAPTURED BY SMARTDESKIA</b>
               </div>
             </div>
           </div>
@@ -50,16 +50,20 @@ export default function AdToJobSection() {
         <article className="ad-stage">
           <div className="ad-stage-mark"><span>03</span><i aria-hidden="true" /></div>
           <div>
-            <h3>Follow-up</h3>
+            <h3>Quote and follow-up</h3>
             <div className="ad-outcome">
               <small className="example-data">Example data</small>
-              <p className="followup-due">Follow-up due: Sarah M. — €2,800 quote sent 3 days ago</p>
-              <p className="followup-won"><b>WON</b><strong>€2,800</strong></p>
+              <div className="ad-progress">
+                <p><b>QUOTE SENT BY OWNER</b><span>€2,800 quote sent to Sarah M.</span></p>
+                <p className="due"><b>FOLLOW-UP DUE · SMARTDESKIA</b><span>No reply after three days</span></p>
+                <p><b>OWNER FOLLOWED UP</b><span>Follow-up sent today</span></p>
+                <p className="won"><b>WON</b><span>Sarah accepted the €2,800 quote</span></p>
+              </div>
             </div>
           </div>
         </article>
       </div>
-      <p className="ad-to-job-setup">Setup includes a professional short video ad, already connected to your follow-up workflow — so every enquiry it brings gets followed up.</p>
+      <p className="ad-to-job-setup">The launch kit can include a short video ad connected to the same follow-up workflow. The ad brings in the enquiry; SmartDeskia keeps the next steps visible.</p>
     </div>
   </section>;
 }
