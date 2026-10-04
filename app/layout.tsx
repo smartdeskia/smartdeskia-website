@@ -20,17 +20,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://smartdeskia.com"),
-  title: "SmartDeskia | Your phone, answered.",
-  description: "Sofia is the AI receptionist who answers every call, books appointments and follows up automatically—24/7.",
+  title: "SmartDeskia | Enquiry and Quote Follow-Up",
+  description: "Keep enquiries, quotations and follow-ups in one clear workflow, from first contact to won or lost.",
   openGraph: {
-    title: "SmartDeskia | Your phone, answered.",
-    description: "Meet Sofia, the AI receptionist who answers, books and follows up 24/7.",
+    title: "SmartDeskia | Enquiry and Quote Follow-Up",
+    description: "A practical back-office service that keeps enquiries, quotations and follow-ups moving.",
     images: ["/og.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SmartDeskia | Your phone, answered.",
-    description: "Meet Sofia, the AI receptionist who answers, books and follows up 24/7.",
+    title: "SmartDeskia | Enquiry and Quote Follow-Up",
+    description: "A practical back-office service that keeps enquiries, quotations and follow-ups moving.",
     images: ["/og.png"],
   },
   icons: {

@@ -14,16 +14,24 @@ test("server-renders the SmartDeskia homepage", async () => {
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   const html = await response.text();
-  assert.match(html, /<title>SmartDeskia \| Your phone, answered\.<\/title>/i);
-  assert.match(html, /Your phone,/);
-  assert.match(html, /Simulated live conversation/);
+  assert.match(html, /<title>SmartDeskia \| Enquiry and Quote Follow-Up<\/title>/i);
+  assert.match(html, /You sent the quote/);
+  assert.match(html, /Did anyone follow it up/);
+  assert.match(html, /Example SmartDeskia workflow activity/);
+  assert.match(html, /SAMPLE ACTIVITY/);
+  assert.match(html, /Quote Follow-Up Calculator/i);
+  assert.match(html, /quoted work with no consistent follow-up — not money lost/);
+  assert.match(html, /5% of that quoted value is/);
+  assert.match(html, /Need help with calls too/);
+  assert.match(html, /RECORDED DEMONSTRATION/);
+  assert.doesNotMatch(html, /ONE REAL WORKFLOW/);
   assert.doesNotMatch(html, /DentaDesk/i);
   assert.match(html, /Chat with Sofia/);
   assert.match(html, /Privacy Policy/);
 });
 
 test("keeps the handoff structure and routes available", async () => {
-  const required = ["../components/Header.tsx", "../components/Footer.tsx", "../components/SofiaChat.tsx", "../components/DashboardPreview.tsx", "../sections/HeroSection.tsx", "../sections/IndustriesSection.tsx", "../data/industries.ts", "../styles/enhancements.css", "../.env.example", "../README.md"];
+  const required = ["../components/Header.tsx", "../components/Footer.tsx", "../components/SofiaChat.tsx", "../components/DashboardPreview.tsx", "../sections/HeroSection.tsx", "../sections/IndustriesSection.tsx", "../data/industries.ts", "../styles/enhancements.css", "../README.md"];
   await Promise.all(required.map(path => access(new URL(path, import.meta.url))));
   const page = await readFile(new URL("../app/page.tsx", import.meta.url), "utf8");
   assert.match(page, /SmartDeskiaHome/);

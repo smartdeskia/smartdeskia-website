@@ -1,61 +1,31 @@
-export type MissedCallInputs = {
-  missedCallsPerWeek: number;
-  conversionPercentage: number;
-  averageCustomerValue: number;
-  workingWeeksPerYear: number;
+export type QuoteFollowUpInputs = {
+  quotationsPerMonth: number;
+  averageQuotationValue: number;
+  followUpPercentage: number;
 };
 
-export type RiskLevel = "Low" | "Moderate" | "High" | "Very High";
-
-export type MissedCallEstimate = {
-  potentialCustomersPerWeek: number;
-  weeklyRevenueAtRisk: number;
-  monthlyRevenueAtRisk: number;
-  annualOpportunities: number;
-  annualRevenueAtRisk: number;
-  riskLevel: RiskLevel;
-  riskDescription: string;
+export type QuoteFollowUpEstimate = {
+  monthlyQuotedValue: number;
+  quotationsNotConsistentlyFollowedUp: number;
+  monthlyValueWithoutConsistentFollowUp: number;
+  annualValueWithoutConsistentFollowUp: number;
+  consistencyLabel: "Needs attention" | "Developing" | "Consistent";
 };
 
-const riskDescriptions: Record<RiskLevel, string> = {
-  Low: "This looks like a small possible loss.",
-  Moderate: "Missed calls may be costing your business a noticeable amount.",
-  High: "Missed calls may be costing your business a significant amount.",
-  "Very High": "Answering more calls could make a major difference to your business.",
-};
+const nonNegative = (value: number) => Number.isFinite(value) ? Math.max(0, value) : 0;
 
-const nonNegative = (value: number) =>
-  Number.isFinite(value) ? Math.max(0, value) : 0;
-
-export function calculateMissedCallCost(
-  inputs: MissedCallInputs,
-): MissedCallEstimate {
-  const missedCalls = nonNegative(inputs.missedCallsPerWeek);
-  const conversionRate = Math.min(
-    100,
-    nonNegative(inputs.conversionPercentage),
-  ) / 100;
-  const averageValue = nonNegative(inputs.averageCustomerValue);
-  const workingWeeks = nonNegative(inputs.workingWeeksPerYear);
-
-  const potentialCustomersPerWeek = missedCalls * conversionRate;
-  const weeklyRevenueAtRisk = potentialCustomersPerWeek * averageValue;
-  const annualOpportunities = potentialCustomersPerWeek * workingWeeks;
-  const annualRevenueAtRisk = weeklyRevenueAtRisk * workingWeeks;
-  const monthlyRevenueAtRisk = annualRevenueAtRisk / 12;
-
-  let riskLevel: RiskLevel = "Low";
-  if (annualRevenueAtRisk >= 50000) riskLevel = "Very High";
-  else if (annualRevenueAtRisk >= 15000) riskLevel = "High";
-  else if (annualRevenueAtRisk >= 5000) riskLevel = "Moderate";
-
+export function calculateQuoteFollowUp(inputs: QuoteFollowUpInputs): QuoteFollowUpEstimate {
+  const quotations = nonNegative(inputs.quotationsPerMonth);
+  const averageValue = nonNegative(inputs.averageQuotationValue);
+  const followUpPercentage = Math.min(100, nonNegative(inputs.followUpPercentage));
+  const monthlyQuotedValue = quotations * averageValue;
+  const notFollowedRate = 1 - followUpPercentage / 100;
+  const monthlyValueWithoutConsistentFollowUp = monthlyQuotedValue * notFollowedRate;
   return {
-    potentialCustomersPerWeek,
-    weeklyRevenueAtRisk,
-    monthlyRevenueAtRisk,
-    annualOpportunities,
-    annualRevenueAtRisk,
-    riskLevel,
-    riskDescription: riskDescriptions[riskLevel],
+    monthlyQuotedValue,
+    quotationsNotConsistentlyFollowedUp: quotations * notFollowedRate,
+    monthlyValueWithoutConsistentFollowUp,
+    annualValueWithoutConsistentFollowUp: monthlyValueWithoutConsistentFollowUp * 12,
+    consistencyLabel: followUpPercentage >= 80 ? "Consistent" : followUpPercentage >= 50 ? "Developing" : "Needs attention",
   };
 }

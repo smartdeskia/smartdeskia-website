@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable jsx-a11y/media-has-caption, jsx-a11y/no-noninteractive-element-interactions -- Existing supplied video has no caption sidecar; backdrop click-to-close is retained. */
 
 import { useEffect, useState } from "react";
 
@@ -15,9 +16,9 @@ export default function VideoDemoSection() {
   return <>
     <section className="video-demo sd-section" id="video-demo">
       <div className="video-demo-copy">
-        <p className="mono coral">SEE SMARTDESKIA IN ACTION</p>
-        <h2>One intelligent front desk.<br /><em>Every conversation handled.</em></h2>
-        <p>Watch how SmartDeskia answers calls, manages conversations, books appointments and keeps your business moving—day and night.</p>
+        <p className="mono coral">SOFIA · OPTIONAL CALL SUPPORT</p>
+        <h2>See how Sofia<br /><em>handles an enquiry.</em></h2>
+        <p>Watch the existing demonstration of Sofia answering a call, managing the conversation and completing a booking.</p>
       </div>
       <button className="video-poster" type="button" onClick={() => setOpen(true)} aria-label="Play the Sofia demonstration video">
         <span className="video-brand">SMART<span>DESK</span>IA<b>.</b></span>
@@ -34,8 +35,8 @@ export default function VideoDemoSection() {
           <source src="/smartdeskia-explainer.mp4" type="video/mp4" />
           Your browser does not support embedded video.
         </video>
-        <p className="mono coral">HOW SMARTDESKIA WORKS</p>
-        <h3 id="video-preview-title">Meet your intelligent front desk.</h3>
+        <p className="mono coral">SOFIA AI RECEPTIONIST</p>
+        <h3 id="video-preview-title">See the call experience.</h3>
       </div>
     </div>}
   </>;

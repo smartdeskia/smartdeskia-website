@@ -1,4 +1,5 @@
 "use client";
+/* eslint-disable jsx-a11y/media-has-caption -- A synchronized, visible transcript is provided beside this recorded demo. */
 
 import { useEffect, useRef, useState } from "react";
 
@@ -51,15 +52,15 @@ export default function AudioDemoSection() {
     return line.text.slice(0, Math.max(1, Math.floor(line.text.length * progress)));
   };
 
-  return <section className="audio-demo sd-section" id="audio-demo">
+  return <section className="audio-demo sd-section" id="sofia">
     <div className="audio-demo-copy">
-      <p className="mono coral">HEAR SOFIA IN ACTION</p>
-      <h2>A real conversation.<br /><em>A confirmed booking.</em></h2>
-      <p>Listen as Sofia welcomes a caller, books a first appointment, captures the details and answers a follow-up question.</p>
-      <small>Recorded demonstration call. Personal contact details are shortened in the transcript.</small>
+      <p className="mono coral">OPTIONAL CALL HANDLING</p>
+      <h2>Need help with calls too?</h2>
+      <p>Sofia can answer calls, capture the enquiry and feed the details into the same SmartDeskia workflow.</p>
+      <small>RECORDED DEMONSTRATION · Personal contact details are shortened in the transcript.</small>
     </div>
     <div className="call-player">
-      <header><span><i /> RECORDED CALL</span><small>{playing ? "PLAYING NOW" : currentTime >= duration - .5 ? "CALL COMPLETE" : `READY · ${formatTime(duration)}`}</small></header>
+      <header><span><i /> RECORDED DEMONSTRATION</span><small>{playing ? "PLAYING NOW" : currentTime >= duration - .5 ? "CALL COMPLETE" : `READY · ${formatTime(duration)}`}</small></header>
       <audio ref={audio} preload="metadata" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} onEnded={() => setPlaying(false)} onTimeUpdate={event => setCurrentTime(event.currentTarget.currentTime)}>
         <source src="/smartdeskia-sample-call.mp4" type="audio/mp4" />
       </audio>
@@ -69,7 +70,7 @@ export default function AudioDemoSection() {
         {visibleCount === 0 && <p className="transcript-ready">Press play to follow the conversation as it happens.</p>}
         {conversation.map((line, index) => currentTime >= line.start && <p ref={activeLine === index ? activeElement : undefined} className={activeLine === index ? "active typing" : "heard"} key={`${line.speaker}-${index}`}><b>{line.speaker}</b>{typedText(line, index)}{activeLine === index && <i className="type-cursor" aria-hidden="true" />}</p>)}
       </div>
-      <footer><button type="button" onClick={toggle}><i>{playing ? "Ⅱ" : "▶"}</i>{playing ? "Pause call" : currentTime >= duration - .5 ? "Play again" : "Play recorded call"}</button><span className={bookingConfirmed ? "confirmed" : "pending"}><i /> {bookingConfirmed ? "BOOKING CONFIRMED" : "LISTENING"}</span></footer>
+      <footer><button type="button" onClick={toggle}><i>{playing ? "Ⅱ" : "▶"}</i>{playing ? "Pause call" : currentTime >= duration - .5 ? "Play again" : "Play recorded call"}</button><span className={bookingConfirmed ? "confirmed" : "pending"}><i /> {bookingConfirmed ? "ENQUIRY CAPTURED" : "LISTENING"}</span></footer>
     </div>
   </section>;
 }
