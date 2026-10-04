@@ -5,32 +5,14 @@ export default function AdToJobSection() {
         <p className="mono coral">One complete customer journey</p>
         <h2>An enquiry came in. The quote didn&apos;t get forgotten.</h2>
         <p className="ad-to-job-lead">Your enquiries may come from ads, your website, WhatsApp or calls. SmartDeskia captures them and keeps every quote and follow-up visible.</p>
-        <div className="enquiry-sources" aria-label="Possible enquiry sources"><span>Ad</span><span>Website</span><span>WhatsApp</span><span>Phone call</span></div>
       </div>
       <div className="ad-flow">
         <article className="ad-stage">
           <div className="ad-stage-mark"><span>01</span><i aria-hidden="true" /></div>
           <div>
-            <h3>Ad</h3>
-            <div className="demo-ad">
-              <div className="demo-ad-phone">
-                <div className="demo-ad-screen">
-                  <small className="example-data">Example ad</small>
-                  {/* Visual slot only. A real demo video can replace .demo-ad-still later without changing this section's layout. */}
-                  <div className="demo-ad-video">
-                    <div className="demo-ad-still" aria-hidden="true">
-                      <span className="demo-ad-sky" />
-                      <span className="demo-ad-room" />
-                      <span className="demo-ad-unit" />
-                      <b>▶</b>
-                    </div>
-                  </div>
-                  <p className="demo-ad-brand"><strong>Harbour Cooling</strong><span>Air-conditioning installation · Malta &amp; Gozo</span></p>
-                  <a className="coral-button demo-ad-cta" href="#request-demo">Get a Quote</a>
-                </div>
-              </div>
-              <p className="demo-ad-note">This is a demo ad — tap to see how it would work for your business.</p>
-            </div>
+            <h3>Enquiry source</h3>
+            <div className="enquiry-sources" aria-label="Possible enquiry sources"><span>Facebook / Instagram ads</span><span>Website / landing page</span><span>WhatsApp</span><span>Phone</span></div>
+            <p className="source-note">The source and type of enquiry can change depending on your business.</p>
           </div>
         </article>
         <article className="ad-stage">
