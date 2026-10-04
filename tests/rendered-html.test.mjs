@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
+import { calculateQuoteFollowUp } from "../lib/missed-call-calculator.ts";
 
 async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -28,8 +29,10 @@ test("server-renders the SmartDeskia homepage", async () => {
   assert.match(html, /OWNER FOLLOWED UP/);
   assert.match(html, /Founding pilot — 3 places/);
   assert.match(html, /Quote Follow-Up Calculator/i);
-  assert.match(html, /How much quoted work may be waiting for follow-up/);
-  assert.match(html, /not money already lost, and not guaranteed revenue/);
+  assert.match(html, /How much quoted work could be sitting unfollowed/);
+  assert.match(html, /Do you follow up every quote/);
+  assert.match(html, /Rough estimate — not guaranteed revenue/);
+  assert.doesNotMatch(html, /How we estimate this/);
   assert.doesNotMatch(html, /5% of that quoted value is/);
   assert.doesNotMatch(html, /Follow-up consistency/);
   assert.doesNotMatch(html, /Winning back even 5%/);
@@ -44,6 +47,18 @@ test("server-renders the SmartDeskia homepage", async () => {
   assert.match(html, /Ask SmartDeskia/);
   assert.doesNotMatch(html, /Chat with Sofia/);
   assert.match(html, /Privacy Policy/);
+});
+
+test("calculates simplified quote follow-up examples", () => {
+  const half = calculateQuoteFollowUp({ quotationsPerMonth: 15, averageQuotationValue: 2000, followUpPercentage: 50 });
+  assert.equal(half.monthlyValueWithoutConsistentFollowUp, 15000);
+  assert.equal(half.annualValueWithoutConsistentFollowUp, 180000);
+  const most = calculateQuoteFollowUp({ quotationsPerMonth: 10, averageQuotationValue: 1000, followUpPercentage: 75 });
+  assert.equal(most.monthlyValueWithoutConsistentFollowUp, 2500);
+  assert.equal(most.annualValueWithoutConsistentFollowUp, 30000);
+  const always = calculateQuoteFollowUp({ quotationsPerMonth: 10, averageQuotationValue: 1000, followUpPercentage: 100 });
+  assert.equal(always.monthlyValueWithoutConsistentFollowUp, 0);
+  assert.equal(always.annualValueWithoutConsistentFollowUp, 0);
 });
 
 test("keeps the handoff structure and routes available", async () => {
