@@ -17,13 +17,12 @@ test("server-renders the SmartDeskia homepage", async () => {
   assert.match(html, /<title>SmartDeskia \| Enquiry and Quote Follow-Up<\/title>/i);
   assert.match(html, /You sent the quote/);
   assert.match(html, /Did anyone follow it up/);
-  assert.match(html, /Example SmartDeskia workflow activity/);
   assert.match(html, /Example data/);
   assert.match(html, /WhatsApp, website and phone enquiries/);
   assert.match(html, /Built for AC, plumbing, electrical, renovation and property-maintenance businesses in Malta and Gozo/);
   assert.match(html, /Chat on WhatsApp/);
-  assert.match(html, /via WhatsApp/);
-  assert.match(html, /From ad to booked job/);
+  assert.match(html, /One complete customer journey/i);
+  assert.match(html, /An enquiry came in/);
   assert.match(html, /CAPTURED BY SMARTDESKIA/);
   assert.match(html, /QUOTE SENT BY OWNER/);
   assert.match(html, /OWNER FOLLOWED UP/);
@@ -34,8 +33,9 @@ test("server-renders the SmartDeskia homepage", async () => {
   assert.doesNotMatch(html, /5% of that quoted value is/);
   assert.doesNotMatch(html, /Follow-up consistency/);
   assert.doesNotMatch(html, /Winning back even 5%/);
-  assert.match(html, /Need help with calls too/);
   assert.match(html, /Sample call — AI-generated audio/);
+  assert.match(html, /Need help getting enquiries into the system/);
+  assert.doesNotMatch(html, /Example SmartDeskia workflow activity/);
   assert.doesNotMatch(html, /RECORDED DEMONSTRATION/);
   assert.doesNotMatch(html, /DEMO DATA/);
   assert.doesNotMatch(html, /MARKETING PREVIEW/);

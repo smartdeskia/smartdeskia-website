@@ -5,10 +5,9 @@ import Footer from "./Footer";
 import RequestCallModal from "./RequestCallModal";
 import SofiaChat from "./SofiaChat";
 import HeroSection from "../sections/HeroSection";
-import AudioDemoSection from "../sections/AudioDemoSection";
 import MissedCallCostCalculator from "./MissedCallCostCalculator";
 import AdToJobSection from "../sections/AdToJobSection";
-import { AdditionalServicesSection, FinalCTA, FoundingPilot, HowItWorksSection } from "../sections/PlatformSections";
+import { EntryPointsSection, FoundingPilot, HowItWorksSection } from "../sections/PlatformSections";
 
 export default function SmartDeskiaHome() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -36,5 +35,5 @@ export default function SmartDeskiaHome() {
     return () => window.removeEventListener("open-request-call", openRequestCall);
   }, []);
   const requestCall = () => setModalOpen(true);
-  return <main className="sd-site"><Header /><HeroSection /><HowItWorksSection /><MissedCallCostCalculator /><AdToJobSection /><AudioDemoSection /><AdditionalServicesSection /><FoundingPilot /><FinalCTA onRequestCall={requestCall} /><Footer onRequestCall={requestCall} /><SofiaChat />{modalOpen && <RequestCallModal onClose={() => setModalOpen(false)} />}</main>;
+  return <main className="sd-site"><Header /><HeroSection /><AdToJobSection /><HowItWorksSection /><EntryPointsSection /><MissedCallCostCalculator /><FoundingPilot onRequestCall={requestCall} /><Footer onRequestCall={requestCall} /><SofiaChat />{modalOpen && <RequestCallModal onClose={() => setModalOpen(false)} />}</main>;
 }

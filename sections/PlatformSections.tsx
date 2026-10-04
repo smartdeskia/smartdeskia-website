@@ -1,9 +1,23 @@
 "use client";
+/* eslint-disable jsx-a11y/media-has-caption -- This optional sample is explicitly labelled as AI-generated audio. */
 import { useState } from "react";
 import DashboardPreview from "../components/DashboardPreview";
 
 export function HowItWorksSection() {
-  return <section className="how sd-section" id="how-it-works"><div className="section-label"><span>01</span><p>SMARTDESKIA / TODAY</p></div><div className="how-head"><h2>Know what needs your attention.</h2><p>New enquiries, quotations and follow-ups in one clear view.</p></div><DashboardPreview /></section>;
+  return <section className="how sd-section" id="product"><div className="section-label"><span>02</span><p>THE PRODUCT</p></div><div className="how-head"><h2>What needs my attention today?</h2><p>One clear view of who is waiting, which quotes are outstanding and what needs following up.</p></div><DashboardPreview /></section>;
+}
+
+export function EntryPointsSection() {
+  const items = [
+    ["Professional ads", "Short video or creative ads can send interested customers into the same enquiry workflow."],
+    ["Landing / quote pages", "Focused pages can turn visitors into enquiries and pass them into SmartDeskia."],
+    ["Sofia AI receptionist", "When you cannot answer, Sofia can capture a phone enquiry and bring it into the same workflow."],
+  ];
+  return <section className="entry-points sd-section" id="services">
+    <div className="entry-points-head"><p className="mono coral">OPTIONAL ENTRY POINTS</p><h2>Need help getting enquiries into the system?</h2><p>SmartDeskia can also set up practical ways for customers to reach the same follow-up workflow.</p></div>
+    <div className="entry-points-grid">{items.map(([title, copy], index) => <article id={index === 2 ? "sofia" : undefined} key={title}><span>0{index + 1}</span><h3>{title}</h3><p>{copy}</p>{index === 2 && <div className="sofia-sample"><small>Sample call — AI-generated audio</small><audio controls preload="metadata"><source src="/smartdeskia-sample-call.mp4" type="audio/mp4" /></audio></div>}</article>)}</div>
+    <p className="entry-points-note">Ads bring in the enquiry; SmartDeskia does not manage campaigns, ad spend or promise leads.</p>
+  </section>;
 }
 
 const workflowEvents = [
@@ -47,8 +61,8 @@ export function AdditionalServicesSection() {
   return <section className="additional-services sd-section" id="services"><div className="additional-services-label"><p className="mono coral">ALSO AVAILABLE</p><h2>Practical support around the main workflow.</h2></div><div className="additional-services-list">{items.map(([title, copy], index) => <article key={String(title)}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></section>;
 }
 
-export function FoundingPilot() {
-  return <section className="founding-pilot" aria-labelledby="founding-pilot-title"><h2 id="founding-pilot-title">Founding pilot — 3 places</h2><p>We&apos;re setting SmartDeskia up with three Maltese service businesses at a reduced setup price, in exchange for honest feedback.</p></section>;
+export function FoundingPilot({ onRequestCall }: { onRequestCall: () => void }) {
+  return <section className="founding-pilot" id="request-demo" aria-labelledby="founding-pilot-title"><p className="mono coral">START WITH YOUR CURRENT PROCESS</p><h2 id="founding-pilot-title">Founding pilot — 3 places</h2><p>We&apos;re setting SmartDeskia up with three Maltese service businesses at a reduced setup price, in exchange for honest feedback.</p><button className="coral-button" onClick={onRequestCall}>Talk to us about the pilot</button></section>;
 }
 
 export function FinalCTA({ onRequestCall }: { onRequestCall: () => void }) {

@@ -326,7 +326,8 @@ body{font-size:1rem;line-height:1.65}
 
 /* Repositioning pass: retain the existing editorial system while shifting the story to enquiry and quote follow-up. */
 .workflow-hero{min-height:calc(100svh - 78px);justify-content:center;padding-top:clamp(3rem,7vh,6rem);padding-bottom:clamp(3rem,7vh,6rem)}
-.hero-composition{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(20rem,.7fr);align-items:end;gap:clamp(3rem,7vw,8rem);width:100%}
+.hero-composition{position:relative;width:100%}
+.hero-message{max-width:68rem}
 .hero-message h1{margin:0;max-width:66rem;font-size:clamp(3.75rem,7.2vw,7.5rem);line-height:.86;letter-spacing:-.065em}
 .hero-message h1 span{color:var(--paper)}
 .hero-message>p{max-width:39rem;margin:clamp(2rem,4vh,3rem) 0 1.75rem;color:#d2d2cc;font-size:clamp(1.0625rem,1.25vw,1.25rem);line-height:1.6}
@@ -379,6 +380,7 @@ body{font-size:1rem;line-height:1.65}
 .ad-to-job h2{max-width:12em;margin:1rem 0 1.25rem;line-height:1.02}
 .ad-to-job-lead{max-width:32rem;margin:0;color:#5c6360;font-size:1.05rem;line-height:1.7}
 .ad-to-job-setup{grid-area:setup;max-width:32rem;margin:0;align-self:end;color:#666c68;font-size:.95rem;line-height:1.65}
+.enquiry-sources{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}.enquiry-sources span{padding:.55rem .75rem;border:1px solid #181b1e25;color:#4e5551;font:700 .7rem var(--font-geist-mono),monospace;letter-spacing:.07em;text-transform:uppercase}
 .ad-flow{grid-area:flow;min-width:0;border-top:1px solid #181b1e22}
 .ad-stage{display:grid;grid-template-columns:3.25rem minmax(0,1fr);gap:1rem;min-width:0;padding:1.75rem 0;border-bottom:1px solid #181b1e22}
 .ad-stage-mark span{color:var(--coral);font:.75rem var(--font-geist-mono),monospace;letter-spacing:.08em}
@@ -421,7 +423,19 @@ body{font-size:1rem;line-height:1.65}
 .founding-pilot{padding:clamp(3rem,5vw,4.25rem) 1.5rem clamp(2.5rem,4vw,3.25rem);text-align:center;background:#14171a;border-top:1px solid #ffffff16}
 .founding-pilot h2{max-width:36rem;margin:0 auto .9rem;font-size:clamp(1.7rem,2.5vw,2.15rem);line-height:1.15;letter-spacing:-.035em;text-wrap:balance}
 .founding-pilot p{max-width:34rem;margin:0 auto;color:#8f9793;font-size:.95rem;line-height:1.65}
+.founding-pilot>p.mono{margin-bottom:1.1rem;color:var(--coral);font-size:.72rem;letter-spacing:.1em}.founding-pilot .coral-button{margin-top:1.75rem}
+
+/* Supporting enquiry channels sit below the core funnel and product, at deliberately lower visual hierarchy. */
+.entry-points{background:var(--paper);color:var(--ink)}
+.entry-points-head{display:grid;grid-template-columns:minmax(12rem,.45fr) minmax(20rem,.85fr) minmax(17rem,.7fr);align-items:end;gap:clamp(2rem,5vw,5rem);padding-bottom:clamp(2.5rem,4vw,4rem);border-bottom:1px solid #171a1d25}
+.entry-points-head h2{margin:0;font-size:clamp(2.5rem,4vw,4.35rem);line-height:1.02}.entry-points-head>p:last-child{margin:0;color:#626864;line-height:1.7}
+.entry-points-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+.entry-points-grid article{min-width:0;padding:clamp(1.5rem,3vw,2.5rem);border-right:1px solid #171a1d25}.entry-points-grid article:first-child{padding-left:0}.entry-points-grid article:last-child{padding-right:0;border-right:0}
+.entry-points-grid article>span{color:#a1a39d;font:.72rem var(--font-geist-mono),monospace}.entry-points-grid h3{margin:2rem 0 1rem;font:400 clamp(1.45rem,2vw,1.9rem) Georgia,serif}.entry-points-grid article>p{margin:0;color:#626864;line-height:1.65}
+.sofia-sample{margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid #171a1d20}.sofia-sample small{display:block;margin-bottom:.7rem;color:#747a76;font:.67rem var(--font-geist-mono),monospace;letter-spacing:.06em;text-transform:uppercase}.sofia-sample audio{display:block;width:100%;height:2.4rem}
+.entry-points-note{max-width:44rem;margin:2rem 0 0;color:#747a76;font-size:.82rem;line-height:1.55}
 @media(max-width:900px){.ad-to-job-layout{grid-template-columns:1fr;grid-template-areas:"intro" "flow" "setup"}}
+@media(max-width:900px){.entry-points-head{grid-template-columns:1fr}.entry-points-grid{grid-template-columns:1fr}.entry-points-grid article,.entry-points-grid article:first-child,.entry-points-grid article:last-child{padding:2rem 0;border-right:0;border-bottom:1px solid #171a1d25}.entry-points-grid article:last-child{border-bottom:0}}
 @media(max-width:700px){
   .hero-message>p:not(.hero-audience){margin:1.75rem 0 0}
   .hero-message>p.hero-audience{margin:.7rem 0 0;font-size:.78rem}

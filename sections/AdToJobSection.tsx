@@ -1,10 +1,11 @@
 export default function AdToJobSection() {
-  return <section className="ad-to-job sd-section" id="ad-to-job">
+  return <section className="ad-to-job sd-section" id="how-it-works">
     <div className="ad-to-job-layout">
       <div className="ad-to-job-intro">
-        <p className="mono coral">From first contact</p>
-        <h2>From ad to booked job — nothing slips through.</h2>
+        <p className="mono coral">One complete customer journey</p>
+        <h2>An enquiry came in. The quote didn&apos;t get forgotten.</h2>
         <p className="ad-to-job-lead">Your enquiries may come from ads, your website, WhatsApp or calls. SmartDeskia captures them and keeps every quote and follow-up visible.</p>
+        <div className="enquiry-sources" aria-label="Possible enquiry sources"><span>Ad</span><span>Website</span><span>WhatsApp</span><span>Phone call</span></div>
       </div>
       <div className="ad-flow">
         <article className="ad-stage">
@@ -63,7 +64,7 @@ export default function AdToJobSection() {
           </div>
         </article>
       </div>
-      <p className="ad-to-job-setup">The launch kit can include a short video ad connected to the same follow-up workflow. The ad brings in the enquiry; SmartDeskia keeps the next steps visible.</p>
+      <p className="ad-to-job-setup">The business generated the enquiry and sent the quote. SmartDeskia kept the next action visible until the owner recorded the outcome.</p>
     </div>
   </section>;
 }
